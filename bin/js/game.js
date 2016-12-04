@@ -30,10 +30,10 @@ var RunningState = (function (_super) {
     }
     RunningState.prototype.preload = function () {
         this.menuGroup = new GroupObject(this.game);
-        this.game.load.image('water', "assets/images/dog.png");
-        this.game.load.image('energy', "assets/images/sun.png");
+        this.game.load.image('water', "assets/images/waterdrop.png");
+        this.game.load.image('energy', "assets/images/energy.png");
         this.game.load.image('button', "assets/images/button.png");
-        this.game.load.image('coin', "assets/images/sun.png");
+        this.game.load.image('coin', "assets/images/coin.png");
         this.game.load.image('button1', "assets/images/sun.png");
         this.game.load.image('button2', "assets/images/sun.png");
         this.game.load.image('button3', "assets/images/sun.png");
@@ -67,7 +67,7 @@ var RunningState = (function (_super) {
         this.tree.render();
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.scale.refresh();
-        this.energy = new Sun(20, 20, 10, Sun.prototype.action, this.game);
+        this.energy = new Energy(20, 20, 10, Energy.prototype.action, this.game);
         this.energy.setSizes(20, 20);
         this.energy.render();
         this.water = new Water(20, 80, 10, Water.prototype.action, this.game);
@@ -78,7 +78,6 @@ var RunningState = (function (_super) {
         this.coins.render();
         this.growbutton = new GrowButton(this.game, this.game.width / 2 - 45, 500, RunningState.prototype.growChecker.bind(this));
         this.growbutton.render();
-        console.log(this.growbutton);
         this.menubutton = new ButtonObject(this.game, this.game.width - 30, this.game.height - 30, "button", this.toggleMenu.bind(this));
         this.menubutton.anchor.set(0.5);
         this.menuGroup.add(this.menubutton);
@@ -100,7 +99,6 @@ var RunningState = (function (_super) {
         this.shopButton.setSizes(50, 50);
         this.shopButton.anchor.set(0.5);
         this.menuGroup.add(this.shopButton);
-        console.log(this.menuGroup);
         this.game.time.events.loop(Phaser.Timer.SECOND, this.updateValues.bind(this), this);
     };
     RunningState.prototype.update = function () {
@@ -115,11 +113,6 @@ var RunningState = (function (_super) {
             console.log(item.x);
             item.x += 5;
         }
-    };
-    RunningState.prototype.goToShopState = function () {
-        console.log("Yeah right, clicked the button.");
-    };
-    RunningState.prototype.growTree = function () {
     };
     RunningState.prototype.toggleMenu = function () {
         if (this.menuGroup.y == 0) {
@@ -212,62 +205,6 @@ var ShopState = (function (_super) {
     };
     return ShopState;
 }(Phaser.State));
-var GameSprite = (function (_super) {
-    __extends(GameSprite, _super);
-    function GameSprite(game, x, y, key) {
-        _super.call(this, game, x, y, key);
-        this.keyString = key;
-        this.x = x;
-        this.y = y;
-        this.game = game;
-    }
-    GameSprite.prototype.setSize = function (height, width) {
-        this.height = height;
-        this.width = width;
-    };
-    GameSprite.prototype.render = function () {
-        this.game.add.existing(this);
-    };
-    return GameSprite;
-}(Phaser.Sprite));
-var Tree = (function (_super) {
-    __extends(Tree, _super);
-    function Tree(game, x, y, currentLevel, keys, maxLevel, startEnergy) {
-        _super.call(this, game, x, y, keys[currentLevel - 1]);
-        this.keys = keys;
-        this.startAmountEnergy = startEnergy;
-        this.currentLevel = currentLevel;
-        this.maxLevel = maxLevel;
-        this.calcNeeded();
-    }
-    Tree.prototype.changeKey = function () {
-        var key = this.keys[this.currentLevel - 1];
-        this.loadTexture(key, 0);
-    };
-    Tree.prototype.calcNeeded = function () {
-        this.energyNeeded = this.startAmountEnergy * (this.currentLevel + 1);
-    };
-    Tree.prototype.upgrade = function (energy) {
-        console.log("Energy " + energy);
-        if (this.currentLevel != this.maxLevel) {
-            if (this.energyNeeded <= energy) {
-                this.currentLevel += 1;
-                console.log(this.currentLevel);
-                this.calcNeeded();
-                this.changeKey();
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            console.log("You Have reached max level!");
-            return false;
-        }
-    };
-    return Tree;
-}(GameSprite));
 var SimpleGame = (function () {
     function SimpleGame() {
         this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'content');
@@ -336,6 +273,24 @@ var GameObject = (function () {
     }
     return GameObject;
 }());
+var GameSprite = (function (_super) {
+    __extends(GameSprite, _super);
+    function GameSprite(game, x, y, key) {
+        _super.call(this, game, x, y, key);
+        this.keyString = key;
+        this.x = x;
+        this.y = y;
+        this.game = game;
+    }
+    GameSprite.prototype.setSize = function (height, width) {
+        this.height = height;
+        this.width = width;
+    };
+    GameSprite.prototype.render = function () {
+        this.game.add.existing(this);
+    };
+    return GameSprite;
+}(Phaser.Sprite));
 var GroupObject = (function (_super) {
     __extends(GroupObject, _super);
     function GroupObject() {
@@ -389,6 +344,44 @@ var TextObject = (function (_super) {
     };
     return TextObject;
 }(Phaser.Text));
+var Tree = (function (_super) {
+    __extends(Tree, _super);
+    function Tree(game, x, y, currentLevel, keys, maxLevel, startEnergy) {
+        _super.call(this, game, x, y, keys[currentLevel - 1]);
+        this.keys = keys;
+        this.startAmountEnergy = startEnergy;
+        this.currentLevel = currentLevel;
+        this.maxLevel = maxLevel;
+        this.calcNeeded();
+    }
+    Tree.prototype.changeKey = function () {
+        var key = this.keys[this.currentLevel - 1];
+        this.loadTexture(key, 0);
+    };
+    Tree.prototype.calcNeeded = function () {
+        this.energyNeeded = this.startAmountEnergy * (this.currentLevel + 1);
+    };
+    Tree.prototype.upgrade = function (energy) {
+        console.log("Energy " + energy);
+        if (this.currentLevel != this.maxLevel) {
+            if (this.energyNeeded <= energy) {
+                this.currentLevel += 1;
+                console.log(this.currentLevel);
+                this.calcNeeded();
+                this.changeKey();
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            console.log("You Have reached max level!");
+            return false;
+        }
+    };
+    return Tree;
+}(GameSprite));
 var Coin = (function (_super) {
     __extends(Coin, _super);
     function Coin(x, y, amount, callback, game) {
@@ -411,27 +404,16 @@ var Diamond = (function (_super) {
     };
     return Diamond;
 }(ResourcesObject));
-var Earth = (function (_super) {
-    __extends(Earth, _super);
-    function Earth(x, y, amount, callback, game) {
-        _super.call(this, game, x, y, amount, 'earth', callback);
+var Energy = (function (_super) {
+    __extends(Energy, _super);
+    function Energy(x, y, amount, callback, game) {
+        _super.call(this, game, x, y, amount, 'energy', callback);
         this.game = game;
     }
-    Earth.prototype.action = function () {
-        console.log(this.amount);
-    };
-    return Earth;
-}(ResourcesObject));
-var Sun = (function (_super) {
-    __extends(Sun, _super);
-    function Sun(x, y, amount, callback, game) {
-        _super.call(this, game, x, y, amount, 'sun', callback);
-        this.game = game;
-    }
-    Sun.prototype.action = function () {
+    Energy.prototype.action = function () {
         console.log("Sun Clicked");
     };
-    return Sun;
+    return Energy;
 }(ResourcesObject));
 var Water = (function (_super) {
     __extends(Water, _super);

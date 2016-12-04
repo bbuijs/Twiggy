@@ -1,5 +1,3 @@
-/// <reference path="objects/GameSprite.ts" />
-
 class Tree extends GameSprite{
     keys:Array<string>;
 

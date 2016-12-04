@@ -3,7 +3,7 @@ class RunningState extends Phaser.State {
     textStyle: Object;
     //resourses
     water: Water;
-    energy: Sun;
+    energy: Energy;
 
     coins: Coin;
     diamonds: number;
@@ -36,11 +36,11 @@ class RunningState extends Phaser.State {
 
 preload(){
 		this.menuGroup = new GroupObject(this.game);
-		this.game.load.image('water', "assets/images/dog.png");
-        this.game.load.image('energy', "assets/images/sun.png");
+		this.game.load.image('water', "assets/images/waterdrop.png");
+        this.game.load.image('energy', "assets/images/energy.png");
 
         this.game.load.image('button', "assets/images/button.png");
-        this.game.load.image('coin', "assets/images/sun.png");
+        this.game.load.image('coin', "assets/images/coin.png");
         this.game.load.image('button1', "assets/images/sun.png");
         this.game.load.image('button2', "assets/images/sun.png");
         this.game.load.image('button3', "assets/images/sun.png");
@@ -88,7 +88,7 @@ preload(){
         //this lines will build the resourse objects.
         // this.shopButton = new ButtonObject(this.game, this.game.width / 2, 200, "buttonshop", RunningState.prototype.goToShopState);
 
-        this.energy = new Sun(20, 20, 10, Sun.prototype.action, this.game);
+        this.energy = new Energy(20, 20, 10, Energy.prototype.action, this.game);
         this.energy.setSizes(20, 20);
         this.energy.render();
 
@@ -102,8 +102,6 @@ preload(){
 
         this.growbutton = new GrowButton(this.game,this.game.width / 2 - 45 ,500,RunningState.prototype.growChecker.bind(this));
         this.growbutton.render();
-        console.log(this.growbutton);
-        // this.tree.render();
 
         this.menubutton = new ButtonObject(this.game, this.game.width - 30, this.game.height - 30, "button", this.toggleMenu.bind(this)) // bind zorgt ervoor dat je in de functie nog bij je menugroep item kan.
         this.menubutton.anchor.set(0.5);
@@ -131,9 +129,9 @@ preload(){
         this.shopButton.setSizes(50, 50);
         this.shopButton.anchor.set(0.5);
         this.menuGroup.add(this.shopButton);
-        console.log(this.menuGroup);
+
         //this loop goes every second.
-        //and this will upscale the amount of earth, water and sun
+        //and this will upscale the amount of water and energy
         this.game.time.events.loop(Phaser.Timer.SECOND, this.updateValues.bind(this), this);
     }
 
@@ -152,16 +150,7 @@ preload(){
 
     }
 
-    goToShopState() {
-        console.log("Yeah right, clicked the button.");
-    }
-
-    growTree(){
-
-    }
-
     toggleMenu() {
-        // console.log(this.menuGroup);
         if (this.menuGroup.y == 0) {
             var menuTween = this.game.add.tween(this.menuGroup).to({
                 y: -250
@@ -185,6 +174,7 @@ preload(){
         if(this.tree.upgrade(this.energy.amount)){
             this.energy.amount = this.energy.amount - oldEnergyNeeded;
         }else{
+            //TODO show clean messages
             console.log("Not enough!")
         }
     }

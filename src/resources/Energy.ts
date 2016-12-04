@@ -1,8 +1,8 @@
 /// <reference path="../objects/ResourcesObject.ts" />
 
-class Sun extends ResourcesObject{
+class Energy extends ResourcesObject{
     constructor(x:number, y:number, amount:number, callback:Function, game:Phaser.Game){
-        super(game, x, y, amount, 'sun', callback);
+        super(game, x, y, amount, 'energy', callback);
         
         this.game = game;
     }
