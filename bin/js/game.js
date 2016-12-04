@@ -67,12 +67,12 @@ var RunningState = (function (_super) {
         this.tree.render();
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.scale.refresh();
-        this.energy = new Energy(20, 20, 10, Energy.prototype.action, this.game);
-        this.energy.setSizes(20, 20);
-        this.energy.render();
-        this.water = new Water(20, 80, 10, Water.prototype.action, this.game);
-        this.water.setSizes(20, 20);
-        this.water.render();
+        this.energyResource = new Energy(20, 20, 10, Energy.prototype.action, this.game);
+        this.energyResource.setSizes(20, 20);
+        this.energyResource.render();
+        this.waterResource = new Water(20, 80, 10, Water.prototype.action, this.game);
+        this.waterResource.setSizes(20, 20);
+        this.waterResource.render();
         this.coins = new Coin(this.game.width - 200, 20, 200, Coin.prototype.action, this.game);
         this.coins.setSizes(20, 20);
         this.coins.render();
@@ -127,13 +127,13 @@ var RunningState = (function (_super) {
         }
     };
     RunningState.prototype.updateValues = function () {
-        this.water.amount += 10;
-        this.energy.amount += 10;
+        this.waterResource.amount += 10;
+        this.energyResource.amount += 10;
     };
     RunningState.prototype.growChecker = function () {
         var oldEnergyNeeded = this.tree.energyNeeded;
-        if (this.tree.upgrade(this.energy.amount)) {
-            this.energy.amount = this.energy.amount - oldEnergyNeeded;
+        if (this.tree.upgrade(this.energyResource.amount)) {
+            this.energyResource.amount = this.energyResource.amount - oldEnergyNeeded;
         }
         else {
             console.log("Not enough!");

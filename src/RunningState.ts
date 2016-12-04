@@ -2,8 +2,8 @@
 class RunningState extends Phaser.State {
     textStyle: Object;
     //resourses
-    water: Water;
-    energy: Energy;
+    waterResource: Water;
+    energyResource: Energy;
 
     coins: Coin;
     diamonds: number;
@@ -88,13 +88,13 @@ preload(){
         //this lines will build the resourse objects.
         // this.shopButton = new ButtonObject(this.game, this.game.width / 2, 200, "buttonshop", RunningState.prototype.goToShopState);
 
-        this.energy = new Energy(20, 20, 10, Energy.prototype.action, this.game);
-        this.energy.setSizes(20, 20);
-        this.energy.render();
+        this.energyResource = new Energy(20, 20, 10, Energy.prototype.action, this.game);
+        this.energyResource.setSizes(20, 20);
+        this.energyResource.render();
 
-        this.water = new Water(20, 80, 10, Water.prototype.action, this.game);
-        this.water.setSizes(20, 20);
-        this.water.render();
+        this.waterResource = new Water(20, 80, 10, Water.prototype.action, this.game);
+        this.waterResource.setSizes(20, 20);
+        this.waterResource.render();
 
         this.coins = new Coin(this.game.width - 200,20,200,Coin.prototype.action,this.game);
         this.coins.setSizes(20,20);
@@ -164,15 +164,15 @@ preload(){
     }
 
     updateValues() {
-        this.water.amount += 10;
-        this.energy.amount += 10;
+        this.waterResource.amount += 10;
+        this.energyResource.amount += 10;
     }
 
     growChecker(){
         var oldEnergyNeeded = this.tree.energyNeeded;
 
-        if(this.tree.upgrade(this.energy.amount)){
-            this.energy.amount = this.energy.amount - oldEnergyNeeded;
+        if(this.tree.upgrade(this.energyResource.amount)){
+            this.energyResource.amount = this.energyResource.amount - oldEnergyNeeded;
         }else{
             //TODO show clean messages
             console.log("Not enough!")
