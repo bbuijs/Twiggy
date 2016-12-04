@@ -3,7 +3,7 @@ class RunningState extends Phaser.State {
     textStyle: Object;
     //resourses
     water: Water;
-    sun: Sun;
+    energy: Sun;
 
     coins: Coin;
     diamonds: number;
@@ -37,8 +37,9 @@ class RunningState extends Phaser.State {
 preload(){
 		this.menuGroup = new GroupObject(this.game);
 		this.game.load.image('water', "assets/images/dog.png");
+        this.game.load.image('energy', "assets/images/sun.png");
+
         this.game.load.image('button', "assets/images/button.png");
-        this.game.load.image('sun', "assets/images/sun.png");
         this.game.load.image('coin', "assets/images/sun.png");
         this.game.load.image('button1', "assets/images/sun.png");
         this.game.load.image('button2', "assets/images/sun.png");
@@ -87,9 +88,9 @@ preload(){
         //this lines will build the resourse objects.
         // this.shopButton = new ButtonObject(this.game, this.game.width / 2, 200, "buttonshop", RunningState.prototype.goToShopState);
 
-        this.sun = new Sun(20, 20, 10, Sun.prototype.action, this.game);
-        this.sun.setSizes(20, 20);
-        this.sun.render();
+        this.energy = new Sun(20, 20, 10, Sun.prototype.action, this.game);
+        this.energy.setSizes(20, 20);
+        this.energy.render();
 
         this.water = new Water(20, 80, 10, Water.prototype.action, this.game);
         this.water.setSizes(20, 20);
@@ -174,22 +175,15 @@ preload(){
     }
 
     updateValues() {
-        this.earth.amount += 10;
         this.water.amount += 10;
-        this.sun.amount += 10;
+        this.energy.amount += 10;
     }
 
     growChecker(){
-        var oldSunNeeded = this.tree.sunNeeded;
-        var oldWaterNeeded = this.tree.waterNeeded;
-        var oldEarthNeeded = this.tree.earthNeeded;
-        console.log(oldSunNeeded);
+        var oldEnergyNeeded = this.tree.energyNeeded;
 
-        if(this.tree.upgrade(this.sun.amount,this.water.amount,this.earth.amount)){
-            this.sun.amount = this.sun.amount - oldSunNeeded;
-            this.water.amount = this.water.amount - oldWaterNeeded;
-            this.earth.amount = this.earth.amount - oldEarthNeeded;
-
+        if(this.tree.upgrade(this.energy.amount)){
+            this.energy.amount = this.energy.amount - oldEnergyNeeded;
         }else{
             console.log("Not enough!")
         }

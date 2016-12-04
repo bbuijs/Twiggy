@@ -3,24 +3,16 @@
 class Tree extends GameSprite{
     keys:Array<string>;
 
-    startAmountSun:number;
-    startAmountWater:number;
-    startAmountEarth:number;
-
+    startAmountEnergy:number;
     currentLevel:number;
-
-    sunNeeded:number;
-    waterNeeded:number;
-    earthNeeded:number;
+    energyNeeded:number;
 
     maxLevel:number;
 
-    constructor(game:Phaser.Game, x:number, y:number, currentLevel:number, keys:Array<string>, maxLevel:number, startSun:number, startWater:number, startEarth:number){
+    constructor(game:Phaser.Game, x:number, y:number, currentLevel:number, keys:Array<string>, maxLevel:number, startEnergy:number){
         super(game,x,y,keys[currentLevel - 1]);
         this.keys = keys;
-        this.startAmountSun = startSun;
-        this.startAmountWater = startWater;
-        this.startAmountEarth = startEarth;
+        this.startAmountEnergy = startEnergy;
         this.currentLevel = currentLevel;
         this.maxLevel = maxLevel
         this.calcNeeded();
@@ -32,15 +24,13 @@ class Tree extends GameSprite{
     }
 
     calcNeeded(){
-        this.sunNeeded = this.startAmountSun * (this.currentLevel + 1);
-        this.waterNeeded = this.startAmountWater * (this.currentLevel + 1);
-        this.earthNeeded = this.startAmountEarth * (this.currentLevel + 1);
+        this.energyNeeded = this.startAmountEnergy * (this.currentLevel + 1);
     }
 
-    upgrade(sun:number, water:number, earth:number):boolean{
-        console.log("sun " + sun + "water " + water + "earth " + earth);
+    upgrade(energy:number):boolean{
+        console.log("Energy " + energy);
         if(this.currentLevel != this.maxLevel){
-            if(this.sunNeeded <= sun && this.waterNeeded <= water && this.earthNeeded <= earth){
+            if(this.energyNeeded <= energy){
                 this.currentLevel += 1;
                 console.log(this.currentLevel);
                 this.calcNeeded();
