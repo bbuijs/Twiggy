@@ -34,6 +34,9 @@ class RunningState extends Phaser.State {
 
 preload(){
 		this.menuGroup = new GroupObject(this.game);
+        this.game.load.image('world', 'assets/images/world.png');
+        this.game.load.image('cloud', 'assets/images/cloud.png');
+
 		this.game.load.image('water', "assets/images/waterdrop.png");
         this.game.load.image('energy', "assets/images/energy.png");
 
@@ -56,14 +59,20 @@ preload(){
         this.game.load.image('pear3', 'assets/images/pear/tree-03.png');
         this.game.load.image('pear4', 'assets/images/pear/tree-04.png');
 
-        this.game.load.image('cloud', 'assets/images/cloud.png');
+        
 
-        this.game.load.image('world', 'assets/images/world.png');
+        
         
 	}
 
     create() {
         //first we set the background
+
+        this.gameWorld = new GameSprite(this.game, 0, this.game.height - 600, "world");
+        this.gameWorld.setSize(600,this.game.width);
+        this.gameWorld.render();
+   
+
         this.game.stage.backgroundColor = "#0000FF";
         this.cloud = [
             new GameSprite(this.game,0,200,"cloud"),
@@ -75,10 +84,6 @@ preload(){
             item.render();
         }
 
-        this.gameWorld = new GameSprite(this.game, 0, this.game.height - 600, "world");
-        this.gameWorld.setSize(600,this.game.width);
-        this.gameWorld.render();
-   
         // var cloud.render();
         //set the tree.
         this.tree = new PearTree(this.game,this.game.width / 2 - 100,this.game.height - 460,1);
@@ -107,32 +112,35 @@ preload(){
         this.growbutton = new GrowButton(this.game,this.game.width / 2 - 45 ,this.game.height - 50,RunningState.prototype.growChecker.bind(this));
         this.growbutton.render();
 
+        this.game.world.bringToTop(this.menuGroup);
         this.menubutton = new ButtonObject(this.game, this.game.width - 30, this.game.height - 30, "button", this.toggleMenu.bind(this)) // bind zorgt ervoor dat je in de functie nog bij je menugroep item kan.
         this.menubutton.anchor.set(0.5);
-        this.menuGroup.add(this.menubutton);  // voeg zo alle knopjes in de array.
+        this.menubutton.render();
 
         var fourth = this.game.width / 4; // een vierde van de game grote
         var eigth = this.game.height / 8; // 1/8
-        this.button = new ButtonObject(this.game, this.game.width - 30, this.game.height + 50, "button1", this.button1Click); // nieuw button object die nog nergens staat maar button1 als plaatje gebruikt en button1click fnctie uitvoert op click.
+        this.button = new ButtonObject(this.game, this.game.width - 30, this.game.height + 25, "button1", this.button1Click); // nieuw button object die nog nergens staat maar button1 als plaatje gebruikt en button1click fnctie uitvoert op click.
         this.button.setSizes(50, 50); // zet knop grote 1 4e breed en 1 8e hoog
         this.button.anchor.set(0.5);
 
         this.menuGroup.add(this.button);
 
-        this.button2 = new ButtonObject(this.game, this.game.width - 30, this.game.height + 100, "button2", this.button2Click);
+        this.button2 = new ButtonObject(this.game, this.game.width - 30, this.game.height + 75, "button2", this.button2Click);
         this.button2.setSizes(50, 50);
         this.button2.anchor.set(0.5);
         this.menuGroup.add(this.button2);
 
-        this.button3 = new ButtonObject(this.game, this.game.width - 30, this.game.height + 150, "button3", this.button3Click);
+        this.button3 = new ButtonObject(this.game, this.game.width - 30, this.game.height + 125, "button3", this.button3Click);
         this.button3.setSizes(50, 50);
         this.button3.anchor.set(0.5);
         this.menuGroup.add(this.button3);
 
-        this.shopButton = new ButtonObject(this.game, this.game.width - 30, this.game.height + 200, "shopButton", this.shopButtonCliced);
+        this.shopButton = new ButtonObject(this.game, this.game.width - 30, this.game.height + 175, "shopButton", this.shopButtonCliced);
         this.shopButton.setSizes(50, 50);
         this.shopButton.anchor.set(0.5);
         this.menuGroup.add(this.shopButton);
+
+        
 
         //this loop goes every second.
         //and this will upscale the amount of water and energy
@@ -148,7 +156,7 @@ preload(){
             if(item.x > this.game.width + 50){
                 item.x = 0 - item.width;
             }
-            item.x += 5;
+            item.x += 1;
         }
 
     }
