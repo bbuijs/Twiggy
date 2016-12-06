@@ -49,6 +49,7 @@ var RunningState = (function (_super) {
         this.game.load.image('pear3', 'assets/images/pear/tree-03.png');
         this.game.load.image('pear4', 'assets/images/pear/tree-04.png');
         this.game.load.image('cloud', 'assets/images/cloud.png');
+        this.game.load.image('world', 'assets/images/world.png');
     };
     RunningState.prototype.create = function () {
         this.game.stage.backgroundColor = "#0000FF";
@@ -62,7 +63,10 @@ var RunningState = (function (_super) {
             item.setSize(80, 80);
             item.render();
         }
-        this.tree = new PearTree(this.game, this.game.width / 2 - 100, 0, 1);
+        this.gameWorld = new GameSprite(this.game, 0, this.game.height - 600, "world");
+        this.gameWorld.setSize(600, this.game.width);
+        this.gameWorld.render();
+        this.tree = new PearTree(this.game, this.game.width / 2 - 100, this.game.height - 460, 1);
         this.tree.setSize(400, 200);
         this.tree.render();
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -76,7 +80,7 @@ var RunningState = (function (_super) {
         this.coins = new Coin(this.game.width - 200, 20, 200, Coin.prototype.action, this.game);
         this.coins.setSizes(20, 20);
         this.coins.render();
-        this.growbutton = new GrowButton(this.game, this.game.width / 2 - 45, 500, RunningState.prototype.growChecker.bind(this));
+        this.growbutton = new GrowButton(this.game, this.game.width / 2 - 45, this.game.height - 50, RunningState.prototype.growChecker.bind(this));
         this.growbutton.render();
         this.menubutton = new ButtonObject(this.game, this.game.width - 30, this.game.height - 30, "button", this.toggleMenu.bind(this));
         this.menubutton.anchor.set(0.5);
@@ -110,7 +114,6 @@ var RunningState = (function (_super) {
             if (item.x > this.game.width + 50) {
                 item.x = 0 - item.width;
             }
-            console.log(item.x);
             item.x += 5;
         }
     };

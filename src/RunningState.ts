@@ -18,14 +18,13 @@ class RunningState extends Phaser.State {
     shopButton: ButtonObject;
 
     growbutton:GrowButton;
-    
-
     menuGroup: Phaser.Group; // maakt var van groep phaser..
 
     curTreeLevel:number = 1;
     tree:Tree;
 
     cloud:Array<GameSprite>;
+    gameWorld:GameSprite;
 
     // levels: Array<>
 
@@ -59,6 +58,8 @@ preload(){
         this.game.load.image('pear4', 'assets/images/pear/tree-04.png');
 
         this.game.load.image('cloud', 'assets/images/cloud.png');
+
+        this.game.load.image('world', 'assets/images/world.png');
         
 	}
 
@@ -74,10 +75,14 @@ preload(){
             item.setSize(80,80);
             item.render();
         }
+
+        this.gameWorld = new GameSprite(this.game, 0, this.game.height - 600, "world");
+        this.gameWorld.setSize(600,this.game.width);
+        this.gameWorld.render();
    
         // var cloud.render();
         //set the tree.
-        this.tree = new PearTree(this.game,this.game.width / 2 - 100,0,1);
+        this.tree = new PearTree(this.game,this.game.width / 2 - 100,this.game.height - 460,1);
         this.tree.setSize(400,200);
         this.tree.render();
 
@@ -100,7 +105,7 @@ preload(){
         this.coins.setSizes(20,20);
 		this.coins.render();
 
-        this.growbutton = new GrowButton(this.game,this.game.width / 2 - 45 ,500,RunningState.prototype.growChecker.bind(this));
+        this.growbutton = new GrowButton(this.game,this.game.width / 2 - 45 ,this.game.height - 50,RunningState.prototype.growChecker.bind(this));
         this.growbutton.render();
 
         this.menubutton = new ButtonObject(this.game, this.game.width - 30, this.game.height - 30, "button", this.toggleMenu.bind(this)) // bind zorgt ervoor dat je in de functie nog bij je menugroep item kan.
@@ -144,7 +149,6 @@ preload(){
             if(item.x > this.game.width + 50){
                 item.x = 0 - item.width;
             }
-            console.log(item.x);
             item.x += 5;
         }
 
