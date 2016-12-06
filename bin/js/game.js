@@ -162,6 +162,8 @@ var ShopState = (function (_super) {
     __extends(ShopState, _super);
     function ShopState() {
         _super.call(this);
+        this.rowcount = 0;
+        this.placement = 0;
     }
     ShopState.prototype.preload = function () {
         this.load.image("apple", "assets/images/apple.png");
@@ -173,38 +175,67 @@ var ShopState = (function (_super) {
         this.game.stage.backgroundColor = "#0000FF";
     };
     ShopState.prototype.create = function () {
+        this.cursors = this.game.input.keyboard.createCursorKeys();
+        this.game.input.addPointer();
         var shopTitle = new TextObject(this.game, this.game.width / 2, 50, "Shop", 50, "#000000");
         shopTitle.anchor.set(0.5);
         this.coins = new Coin(this.game.width / 2 - 100, 90, 200, Coin.prototype.action, this.game);
         this.coins.setSizes(20, 20);
         this.coins.render();
-        this.diamonds = new Diamond(this.game.width / 2 + 50, 90, 200, Coin.prototype.action, this.game);
+        this.diamonds = new Diamond(this.game.width / 2 + 50, 90, 210, Coin.prototype.action, this.game);
         this.diamonds.setSizes(20, 20);
         this.diamonds.render();
-        var linePosY = 120;
-        var line = new Phaser.Line(0, linePosY, this.game.width, linePosY);
-        this.game.debug.geom(line, "#000000");
-        this.itemArray = [
-            new AppleItem(this.game, 200, 100, ShopState.prototype.action),
-        ];
+        this.itemArray = [];
+        for (var i = 0; i < 100; i++) {
+            this.itemArray.push(new AppleItem(this.game, 0, 0, ShopState.prototype.action));
+        }
         for (var _i = 0, _a = this.itemArray; _i < _a.length; _i++) {
             var item = _a[_i];
-            item.setSizes(40, 40);
+            item.x = this.placement * 100;
+            item.y = this.rowcount * 100 + 120;
+            item.setSizes(50, 50);
             item.render();
+            this.placement++;
+            if (this.placement == 6) {
+                this.rowcount++;
+                this.placement = 0;
+            }
         }
-        this.makeScorable();
+        this.scrollHeight = this.rowcount * 100 + 250;
+        this.game.world.setBounds(0, 0, 320 * this.game.width, this.scrollHeight);
+        this.game.input.onDown.add(this.locationPointer, this);
     };
-    ShopState.prototype.makeScorable = function () {
-        var containerSprite = this.game.add.sprite(0, 0);
-        var scrollMask = this.game.add.graphics(0, 0);
-        scrollMask.beginFill(0xffffff);
-        scrollMask.drawRect(0, 0, this.game.width, this.game.height);
-        scrollMask.endFill();
-        containerSprite.mask = scrollMask;
+    ShopState.prototype.locationPointer = function () {
+        this.fromHeight = this.game.input.activePointer.y;
+        console.log(this.fromHeight);
     };
     ShopState.prototype.action = function () {
     };
     ShopState.prototype.render = function () {
+    };
+    ShopState.prototype.update = function () {
+        if (this.cursors.up.isDown) {
+            this.game.camera.y -= 10;
+        }
+        else if (this.cursors.down.isDown) {
+            this.game.camera.y += 10;
+        }
+        else if (this.game.input.mouse.wheelDelta === Phaser.Mouse.WHEEL_UP) {
+            this.game.camera.y -= 50;
+            this.game.input.mouse.wheelDelta = null;
+        }
+        else if (this.game.input.mouse.wheelDelta === Phaser.Mouse.WHEEL_DOWN) {
+            this.game.camera.y += 50;
+            this.game.input.mouse.wheelDelta = null;
+        }
+        if (this.game.input.activePointer.isDown) {
+            if (this.game.input.y > this.fromHeight) {
+                this.game.camera.y += 15;
+            }
+            else if (this.game.input.y < this.fromHeight) {
+                this.game.camera.y -= 15;
+            }
+        }
     };
     return ShopState;
 }(Phaser.State));
