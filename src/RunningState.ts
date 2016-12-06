@@ -26,8 +26,6 @@ class RunningState extends Phaser.State {
     cloud:Array<GameSprite>;
     gameWorld:GameSprite;
 
-    // levels: Array<>
-
     constructor() {
         super();
 
