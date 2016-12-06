@@ -1,8 +1,4 @@
 class ShopState extends Phaser.State{
-	//resourses
-	water:Water; 
-	sun:Sun; 
-	earth:Earth;
 
 	coins:Coin; 
 	diamonds:Diamond;
@@ -117,11 +113,11 @@ class ShopState extends Phaser.State{
 			{
 				if (this.game.input.y > this.fromHeight)
 					{
-						this.game.camera.y += 15;
+						this.game.camera.y -= 15;
 					}
 				else if  (this.game.input.y < this.fromHeight)
 					{
-						this.game.camera.y -= 15;	
+						this.game.camera.y += 15;	
 					}
 			}
 	}
