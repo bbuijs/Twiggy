@@ -4,12 +4,17 @@
 class ResourcesObject extends ButtonObject{
     text:TextObject;
     _amount:number;
+    cookieHandler:CookieHandler;
 
     constructor(game:Phaser.Game, x:number, y:number, amount:number, key:string, callback:Function){
         super(game,x,y,key,callback);
-        this._amount = amount
+        this.cookieHandler = new CookieHandler(key);
+        this._amount = this.cookieHandler.getInt();
+
         this.setValue(this.amount);
+        this.key = key;
     }
+
 
     setValue(amount:number){
         console.log("setting value");
@@ -20,6 +25,7 @@ class ResourcesObject extends ButtonObject{
     }
 
     updateValue(amount:number){
+        this.cookieHandler.add(amount);
         var amountString = String(amount);
         this.text.setText(amountString);
     }
