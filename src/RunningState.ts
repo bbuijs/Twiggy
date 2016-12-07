@@ -53,15 +53,16 @@ preload(){
         this.game.load.image('apple2', 'assets/images/apple/tree-02.png');
         this.game.load.image('apple3', 'assets/images/apple/tree-03.png');
         this.game.load.image('apple4', 'assets/images/apple/tree-04.png');
+        this.game.load.image('apple5', 'assets/images/apple/tree-05.png');
+        this.game.load.image('apple6', 'assets/images/apple/tree-06.png');
+        this.game.load.image('apple7', 'assets/images/apple/tree-07.png');
+        this.game.load.image('apple8', 'assets/images/apple/tree-08.png');
         //Pear growing.
         this.game.load.image('pear1', 'assets/images/pear/tree-01.png');
         this.game.load.image('pear2', 'assets/images/pear/tree-02.png');
         this.game.load.image('pear3', 'assets/images/pear/tree-03.png');
         this.game.load.image('pear4', 'assets/images/pear/tree-04.png');
-
-        
-
-        
+     
         
 	}
 
@@ -86,12 +87,13 @@ preload(){
 
         // var cloud.render();
         //set the tree.
-        this.tree = new PearTree(this.game,this.game.width / 2 - 100,this.game.height - 460,1);
-        this.tree.setSize(400,200);
+        this.tree = new AppleTree(this.game,this.game.width / 2,this.game.height - 30,1);
+        this.tree.anchor.set(0.5,1)
+        this.tree.setSize(640,360);
         this.tree.render();
 
         // tell Phaser how you want it to handle scaling when you go full screen
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+     //    this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         // and this causes it to actually do it
         this.game.scale.refresh();
         //this lines will build the resourse objects.
@@ -186,7 +188,7 @@ preload(){
             this.energyResource.amount = this.energyResource.amount - oldEnergyNeeded;
         }else{
             //TODO show clean messages
-            console.log("Not enough!")
+            console.log("Not enough!" + this.tree.keys[0])
         }
     }
 
@@ -209,6 +211,7 @@ preload(){
 
     //user this for rendering
     render() {
-        //
+        this.tree.setSize(640,360);
+        this.tree.render();
     }
 }
