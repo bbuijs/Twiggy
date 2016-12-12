@@ -40,12 +40,12 @@ preload(){
 		this.game.load.image('water', "assets/images/waterdrop.png");
         this.game.load.image('energy', "assets/images/energy.png");
 
-        this.game.load.image('button', "assets/images/button.png");
+        this.game.load.image('button', "assets/images/menu.png");
         this.game.load.image('coin', "assets/images/coin.png");
-        this.game.load.image('button1', "assets/images/sun.png");
-        this.game.load.image('button2', "assets/images/sun.png");
-        this.game.load.image('button3', "assets/images/sun.png");
-        this.game.load.image('shopButton', "assets/images/market.png");
+        this.game.load.image('button1', "assets/images/menu_background.png");
+        this.game.load.image('button2', "assets/images/menu_background.png");
+        this.game.load.image('button3', "assets/images/menu_background.png");
+        this.game.load.image('shopButton', "assets/images/menu_background.png");
         this.game.load.image('buttontoshop', "assets/images/dog.png");
         this.game.load.image('growbutton', 'assets/images/growbutton.png');
         //trees growing.
@@ -74,7 +74,7 @@ preload(){
         this.gameWorld.render();
    
 
-        this.game.stage.backgroundColor = "#0000FF";
+        this.game.stage.backgroundColor = "#73d8ed";
         this.cloud = [
             new GameSprite(this.game,0,200,"cloud"),
             new GameSprite(this.game,200,240,"cloud"),
@@ -87,7 +87,7 @@ preload(){
 
         // var cloud.render();
         //set the tree.
-        this.tree = new AppleTree(this.game,this.game.width / 2,this.game.height - 30,1);
+        this.tree = new AppleTree(this.game,this.game.width / 2,this.game.height - 20,1);
         this.tree.anchor.set(0.5,1)
         this.tree.setSize(640,360);
         this.tree.render();
@@ -121,24 +121,25 @@ preload(){
 
         var fourth = this.game.width / 4; // een vierde van de game grote
         var eigth = this.game.height / 8; // 1/8
+
         this.button = new ButtonObject(this.game, this.game.width - 30, this.game.height + 25, "button1", this.button1Click); // nieuw button object die nog nergens staat maar button1 als plaatje gebruikt en button1click fnctie uitvoert op click.
-        this.button.setSizes(50, 50); // zet knop grote 1 4e breed en 1 8e hoog
+        this.button.setSizes(100, 100); // zet knop grote 1 4e breed en 1 8e hoog
         this.button.anchor.set(0.5);
 
         this.menuGroup.add(this.button);
 
         this.button2 = new ButtonObject(this.game, this.game.width - 30, this.game.height + 75, "button2", this.button2Click);
-        this.button2.setSizes(50, 50);
+        this.button2.setSizes(100, 100);
         this.button2.anchor.set(0.5);
         this.menuGroup.add(this.button2);
 
         this.button3 = new ButtonObject(this.game, this.game.width - 30, this.game.height + 125, "button3", this.button3Click);
-        this.button3.setSizes(50, 50);
+        this.button3.setSizes(100, 100);
         this.button3.anchor.set(0.5);
         this.menuGroup.add(this.button3);
 
         this.shopButton = new ButtonObject(this.game, this.game.width - 30, this.game.height + 175, "shopButton", this.shopButtonCliced);
-        this.shopButton.setSizes(50, 50);
+        this.shopButton.setSizes(100, 100);
         this.shopButton.anchor.set(0.5);
         this.menuGroup.add(this.shopButton);
 
