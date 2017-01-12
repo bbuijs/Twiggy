@@ -16,5 +16,7 @@ class MenuScreenState extends Phaser.State{
         }
         titleClicked (){
             this.game.state.start("ShopState");
+            this.game.state.start("profileState");
+            this.game.state.start("RunningState");
         }
 }

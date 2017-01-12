@@ -25,43 +25,59 @@ class ShopState extends Phaser.State{
     preload()
 	{
 		this.load.image("apple", "assets/images/apple.png");
-		// this.load.image("apple", "assets/images/apple.png");
+
+		
 		
 
 		//loading the resourses
 		//load the sprite of the resourses
-		this.load.image( 'coin', "assets/images/dog.png" );
-		this.load.image( 'diamond', "assets/images/dog.png" );
-
-		this.load.image( 'water', "assets/images/dog.png" );
-		this.load.image( 'earth', "assets/images/sun.png" );
-		this.load.image( 'sun', "assets/images/sun.png");
-		this.game.stage.backgroundColor = "#0000FF";
+		this.load.image( 'coin', "assets/images/coin.png" );
+		this.load.image( 'diamond', "assets/images/diamond.png" );
+this.load.image('x',"assets/images/X.png");
+this.load.image('maal',"assets/images/maal.png");
+		this.load.image( 'water', "assets/images/coin.png" );
+		this.load.image( 'earth', "assets/images/zon.png" );
+		this.load.image( 'verkoop', "assets/images/verkoopbutton.png" );
+		this.game.stage.backgroundColor = "#663300";
 	}
 	
 	create()
 	{
-		//inputs
+		
+		// this.game.add.sprite(300, 20, 'x');
+		this.game.add.sprite(260,130,'verkoop')
 		this.cursors = this.game.input.keyboard.createCursorKeys();
 		this.game.input.addPointer();
 		//Set title of screen
 		var shopTitle = new TextObject(this.game,this.game.width / 2, 50,"Shop", 50, "#000000")
 		shopTitle.anchor.set(0.5);
+		var sdifTitle = new TextObject(this.game,150, 150,"0 X", 40, "#000000")
+		sdifTitle.anchor.set(0.5);
 		//set coin and diamods
 		this.coins = new Coin(this.game.width / 2 - 100, 90, 200,Coin.prototype.action, this.game);
 		this.coins.setSizes(20,20);
 		this.coins.render();
 
-		this.diamonds = new Diamond(this.game.width / 2 + 50, 90,210,Coin.prototype.action, this.game);
+		this.diamonds = new Diamond(this.game.width / 2 + 50, 90,210,Diamond.prototype.action, this.game);
 		this.diamonds.setSizes(20,20);
 		this.diamonds.render();
 
+	    this.button3 = new ButtonObject(this.game,50,150, "x", this.button3Click);
+        this.button3.setSizes(100, 90);
+        this.button3.anchor.set(0.5);
 		//set line for decoration
-
+		new Phaser.Rectangle(0, 0,0,0);
+		var barBlack,maxWidth,tween; 
+		barBlack = this.game.add.graphics(0,115);  
+        barBlack.beginFill(0x000000);    barBlack.drawRect(0,0,25,2);
+		maxWidth = 360;    barBlack.width=0;   
+                   tween = this.game.add.tween(barBlack);   
+                    tween.to({width:maxWidth},100);  
+                      tween.start();
 		//set the list of items in list
 		this.itemArray = [		]
-		for(let i=0; i < 100; i++) 	{
-				this.itemArray.push(new AppleItem(this.game,0,0, ShopState.prototype.action));
+		for(let i=0; i < 1; i++) 	{
+				this.itemArray.push(new AppleItem(this.game,0,40, ShopState.prototype.action));
 		}
 	
 		for(var item of this.itemArray){
@@ -81,11 +97,13 @@ class ShopState extends Phaser.State{
 		this.game.input.onDown.add(this.locationPointer, this);
 	} 
 
+
+
 	locationPointer(){
 		this.fromHeight = this.game.input.activePointer.y;
 		console.log(this.fromHeight);
 	}
-
+	
 	action(){
 		// aangeroepen bij elke shop item apple
 	}
@@ -125,5 +143,7 @@ class ShopState extends Phaser.State{
 					}
 			}
 	}
-
+ShopState.prototype.button3Click = function() {
+        this.game.state.start("RunningState");
+    };
 }

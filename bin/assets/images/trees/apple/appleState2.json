@@ -1,0 +1,165 @@
+{
+"frames": {
+	"Stage 2 slow_entity_000_NewAnimation_000.png": {
+		"frame": {"x":546, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_001.png": {
+		"frame": {"x":910, "y":860, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_002.png": {
+		"frame": {"x":910, "y":645, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_003.png": {
+		"frame": {"x":910, "y":430, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_004.png": {
+		"frame": {"x":910, "y":215, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_005.png": {
+		"frame": {"x":910, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_006.png": {
+		"frame": {"x":728, "y":860, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_007.png": {
+		"frame": {"x":728, "y":645, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_008.png": {
+		"frame": {"x":728, "y":430, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_009.png": {
+		"frame": {"x":728, "y":215, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_010.png": {
+		"frame": {"x":728, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_011.png": {
+		"frame": {"x":546, "y":860, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_012.png": {
+		"frame": {"x":546, "y":645, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_013.png": {
+		"frame": {"x":546, "y":430, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_014.png": {
+		"frame": {"x":546, "y":215, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_015.png": {
+		"frame": {"x":1092, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_016.png": {
+		"frame": {"x":364, "y":860, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_017.png": {
+		"frame": {"x":364, "y":645, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_018.png": {
+		"frame": {"x":364, "y":430, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_019.png": {
+		"frame": {"x":364, "y":215, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_020.png": {
+		"frame": {"x":364, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_021.png": {
+		"frame": {"x":182, "y":860, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_022.png": {
+		"frame": {"x":182, "y":645, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_023.png": {
+		"frame": {"x":182, "y":430, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_024.png": {
+		"frame": {"x":182, "y":215, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_025.png": {
+		"frame": {"x":182, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_026.png": {
+		"frame": {"x":0, "y":860, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_027.png": {
+		"frame": {"x":0, "y":645, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_028.png": {
+		"frame": {"x":0, "y":430, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_029.png": {
+		"frame": {"x":0, "y":215, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	},
+	"Stage 2 slow_entity_000_NewAnimation_030.png": {
+		"frame": {"x":0, "y":0, "w":181, "h":214},
+		"spriteSourceSize": {"x":0,"y":0,"w":181,"h":214},
+		"sourceSize": {"w":181,"h":214}
+	}
+
+},
+"meta": {
+	"image": "appleState2.png",
+	"size": {"w": 1274, "h": 1075},
+	"scale": "1"
+}
+}

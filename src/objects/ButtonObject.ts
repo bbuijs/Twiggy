@@ -9,10 +9,12 @@ class ButtonObject extends Phaser.Button{
     setSizes(width:number, height:number){
         this.width = width;
         this.height = height;
+        this.game.world.bringToTop(this);
     }
 
     render(){
         this.game.add.existing(this);
+        this.game.world.bringToTop(this)
     }
 
     action(){}

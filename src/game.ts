@@ -19,5 +19,5 @@ class SimpleGame
 
 // when the page has finished loading, create our game
 window.onload = () => {
-	var game = new SimpleGame();
+	new SimpleGame();
 };
