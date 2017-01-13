@@ -192,18 +192,25 @@ class RunningState extends Phaser.State {
         let mountainBack = this.game.add.sprite(-150,this.game.height - 180,'mountain4');
         mountainBack.width = this.game.width + 300;
 
-        let mountain = this.game.add.sprite(-2,this.game.height - 150, 'mountain1');
-        mountain.width = this.game.width + 4;
-        var barYellow,maxHeight,firsttween; 
+        var barBlack,maxHeight,b1tween;
+      barBlack = this.game.add.graphics(15,540); 
+      barBlack.beginFill(0x000000);    barBlack.drawRect(0,0,25,50);  
+                 maxHeight = -100;    barBlack.height=0;
+                      b1tween = this.game.add.tween(barBlack);   
+                        b1tween.to({height:maxHeight},10);  
+                        b1tween.start();
+
+                        
+         var barYellow,maxHeight,firsttween; 
             barYellow = this.game.add.graphics(15,540);
             barYellow.beginFill(0x1E6665);    barYellow.drawRect(0,0,25,50);  
-            maxHeight = -30     ;    barYellow.height= 0; 
+            maxHeight = -100    ;    barYellow.height= 0; 
             firsttween = this.game.add.tween(barYellow);
-                    firsttween.to({height:maxHeight},10000);
+                    firsttween.to({height:maxHeight},1000);
                     firsttween.start();
-                    if ( barYellow == 30){
-                        firsttween.restart();
-                    };
+    
+                      
+                    
         // let grass = this.game.add.sprite(0,this.game.height - 150, 'grass');
         // grass.width = this.game.width / 2;
 
@@ -467,6 +474,20 @@ class RunningState extends Phaser.State {
                 console.log('Plant data');
                 console.log(data);
                 this.loadNewState();
+                var barBlack,maxHeight,b2tween;
+                      barBlack = this.game.add.graphics(15,540); 
+                     barBlack.beginFill(0x000000);    barBlack.drawRect(0,0,25,50);  
+                           maxHeight = -100;    barBlack.height=0;
+                            b2tween = this.game.add.tween(barBlack);   
+                                 b2tween.to({height:maxHeight},10); 
+                                 b2tween.start();
+                 var barYellow,maxHeight,firsttween; 
+                     barYellow = this.game.add.graphics(15,540);
+                    barYellow.beginFill(0x1E6665);    barYellow.drawRect(0,0,25,50);  
+                        maxHeight = -100    ;    barYellow.height= 0; 
+                            firsttween = this.game.add.tween(barYellow);
+                                 firsttween.to({height:maxHeight},1000);
+                                     firsttween.start ();
             }else{
                 // console.log("Error ")
                 alert('Niet genoeg energie spaar nog even door.');

@@ -8,7 +8,7 @@ class SimpleGame
 	constructor()
 	{
 		//setup the game
-		this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'content');
+		this.game = new Phaser.Game(360, 600, Phaser.AUTO, 'content');
 		this.game.state.add("MenuScreenState", MenuScreenState , false);
 		this.game.state.add("RunningState", RunningState , false);
 		this.game.state.add("ShopState", ShopState , false);
