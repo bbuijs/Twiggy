@@ -12,6 +12,7 @@ class SimpleGame
 		this.game.state.add("MenuScreenState", MenuScreenState , false);
 		this.game.state.add("RunningState", RunningState , false);
 		this.game.state.add("ShopState", ShopState , false);
+		this.game.state.add("profileState", profileState , false);
 		this.game.state.start("RunningState",true,true);
 	}
 }
@@ -19,5 +20,5 @@ class SimpleGame
 
 // when the page has finished loading, create our game
 window.onload = () => {
-	new SimpleGame();
+	var game = new SimpleGame();
 };

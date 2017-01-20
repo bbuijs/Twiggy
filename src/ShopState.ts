@@ -11,7 +11,8 @@ class ShopState extends Phaser.State{
 	itemArray:Array<ItemObject>;
 	// maakt keys item
 	cursors: Phaser.CursorKeys;
-
+	verkoop:ButtonObject;
+	x:ButtonObject;
 	rowcount: number = 0; // houd bij welke rij je zit / hoeveel er dus zijn
 	placement: number = 0; // houd bij bij welk item in de rij je zit.
 	scrollHeight: number; // berekend hoogte van scrollen max.
@@ -33,8 +34,8 @@ class ShopState extends Phaser.State{
 		//load the sprite of the resourses
 		this.load.image( 'coin', "assets/images/coin.png" );
 		this.load.image( 'diamond', "assets/images/diamond.png" );
-this.load.image('x',"assets/images/X.png");
-this.load.image('maal',"assets/images/maal.png");
+		this.load.image('x',"assets/images/X.png");
+		this.load.image('maal',"assets/images/maal.png");
 		this.load.image( 'water', "assets/images/coin.png" );
 		this.load.image( 'earth', "assets/images/zon.png" );
 		this.load.image( 'verkoop', "assets/images/verkoopbutton.png" );
@@ -45,13 +46,13 @@ this.load.image('maal',"assets/images/maal.png");
 	{
 		
 		// this.game.add.sprite(300, 20, 'x');
-		this.game.add.sprite(260,130,'verkoop')
+		// this.game.add.sprite(260,130,'verkoop');
 		this.cursors = this.game.input.keyboard.createCursorKeys();
 		this.game.input.addPointer();
 		//Set title of screen
-		var shopTitle = new TextObject(this.game,this.game.width / 2, 50,"Shop", 50, "#000000")
+		var shopTitle = new TextObject(this.game,this.game.width / 2, 50,"Shop", 50, "#000000");
 		shopTitle.anchor.set(0.5);
-		var sdifTitle = new TextObject(this.game,150, 150,"0 X", 40, "#000000")
+		var sdifTitle = new TextObject(this.game,180, 153,"X", 30, "#000000");
 		sdifTitle.anchor.set(0.5);
 		//set coin and diamods
 		this.coins = new Coin(this.game.width / 2 - 100, 90, 200,Coin.prototype.action, this.game);
@@ -62,9 +63,16 @@ this.load.image('maal',"assets/images/maal.png");
 		this.diamonds.setSizes(20,20);
 		this.diamonds.render();
 
-	    this.button3 = new ButtonObject(this.game,50,150, "x", this.button3Click);
-        this.button3.setSizes(100, 90);
-        this.button3.anchor.set(0.5);
+	    this.verkoop = new ButtonObject(this.game,280,150, "verkoop", this.verkoopClicked);
+        this.verkoop.setSizes(100, 50);
+        this.verkoop.anchor.set(0.5);
+		this.verkoop.render();
+
+		this.x= new ButtonObject(this.game,300,45, "x", this.xClicked);
+        this.x.setSizes(40, 40);
+        this.x.anchor.set(0.5);
+		this.x.render();
+		this.game.add.sprite(40,115,'apple');
 		//set line for decoration
 		new Phaser.Rectangle(0, 0,0,0);
 		var barBlack,maxWidth,tween; 
@@ -75,26 +83,14 @@ this.load.image('maal',"assets/images/maal.png");
                     tween.to({width:maxWidth},100);  
                       tween.start();
 		//set the list of items in list
-		this.itemArray = [		]
-		for(let i=0; i < 1; i++) 	{
-				this.itemArray.push(new AppleItem(this.game,0,40, ShopState.prototype.action));
-		}
-	
-		for(var item of this.itemArray){
-			item.x = this.placement * 100;
-			item.y = this.rowcount * 100 + 120;
-			item.setSizes(50,50);
-			item.render();
-			this.placement ++;
-			if (this.placement == 6 )
-			{
-				this.rowcount++;
-				this.placement = 0;
-			} 
-		}
+		
+		
 		this.scrollHeight = this.rowcount * 100 + 250;
 		this.game.world.setBounds(0, 0, 320 * this.game.width, this.scrollHeight);
 		this.game.input.onDown.add(this.locationPointer, this);
+		var item = 1
+		var ItemTitle = new TextObject(this.game,150, 153,item, 40, "#000000");
+		ItemTitle.anchor.set(0.5);
 	} 
 
 
@@ -143,7 +139,16 @@ this.load.image('maal',"assets/images/maal.png");
 					}
 			}
 	}
-ShopState.prototype.button3Click = function() {
+ShopState.prototype.xClicked = function() {
         this.game.state.start("RunningState");
+    };
+	ShopState.prototype.verkoopClicked = function() {
+        if(this.item>0){
+			this.item - 1;
+			this.Coin =+ 100;
+			this.item.render();
+			this.Coin.render();
+		};
+		
     };
 }
