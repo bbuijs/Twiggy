@@ -1,4 +1,6 @@
 class ShopState extends Phaser.State{
+	//resourses
+	water:Water;
 
 	coins:Coin; 
 	diamonds:Diamond;
@@ -7,7 +9,10 @@ class ShopState extends Phaser.State{
 	itemArray:Array<ItemObject>;
 	// maakt keys item
 	cursors: Phaser.CursorKeys;
-
+	verkoop:ButtonObject;
+	verkoop1:ButtonObject;
+	verkoop2:ButtonObject
+	x:ButtonObject;
 	rowcount: number = 0; // houd bij welke rij je zit / hoeveel er dus zijn
 	placement: number = 0; // houd bij bij welk item in de rij je zit.
 	scrollHeight: number; // berekend hoogte van scrollen max.
@@ -26,13 +31,16 @@ class ShopState extends Phaser.State{
 
 		//loading the resourses
 		//load the sprite of the resourses
-		this.load.image( 'coin', "assets/images/dog.png" );
-		this.load.image( 'diamond', "assets/images/dog.png" );
-
-		this.load.image( 'water', "assets/images/dog.png" );
-		this.load.image( 'earth', "assets/images/sun.png" );
-		this.load.image( 'sun', "assets/images/sun.png");
-		this.game.stage.backgroundColor = "#0000FF";
+		this.load.image( 'coin', "assets/images/coin.png" );
+		this.load.image( 'diamond', "assets/images/diamond.png" );
+		this.load.image('x',"assets/images/X.png");
+		this.load.image('maal',"assets/images/maal.png");
+		this.load.image( 'water', "assets/images/coin.png" );
+		this.load.image( 'earth', "assets/images/zon.png" );
+		this.load.image( 'verkoop', "assets/images/verkoopbutton.png" );
+		this.game.stage.backgroundColor = "#663300";
+		this.load.image( 'peer', "assets/images/Pear.png" );
+		this.load.image( 'banana', "assets/images/banana.png" );
 	}
 	
 	create()
@@ -43,40 +51,91 @@ class ShopState extends Phaser.State{
 		//Set title of screen
 		var shopTitle = new TextObject(this.game,this.game.width / 2, 50,"Shop", 50, "#000000")
 		shopTitle.anchor.set(0.5);
+		var sdifTitle = new TextObject(this.game,180, 153,"X", 30, "#000000");
+		sdifTitle.anchor.set(0.5);
+		var sdifTitle = new TextObject(this.game,180, 333,"X", 30, "#000000");
+		sdifTitle.anchor.set(0.5);
+
+		var sdifTitle = new TextObject(this.game,180, 243,"X", 30, "#000000");
+		sdifTitle.anchor.set(0.5);
+
 		//set coin and diamods
-		this.coins = new Coin(this.game.width / 2 - 100, 90, 200,Coin.prototype.action, this.game);
-		this.coins.setSizes(20,20);
+		var coinvalue = 200;
+		this.coins = new Coin(this.game.width / 2 - 100, 85, coinvalue,Coin.prototype.action, this.game);
+		this.coins.setSizes(17,20);
 		this.coins.render();
 
-		this.diamonds = new Diamond(this.game.width / 2 + 50, 90,210,Coin.prototype.action, this.game);
+		var diamondvalue = 210;
+		this.diamonds = new Diamond(this.game.width / 2 + 50, 85,diamondvalue,Diamond.prototype.action, this.game);
 		this.diamonds.setSizes(20,20);
 		this.diamonds.render();
 
-		//set line for decoration
+		 this.verkoop = new ButtonObject(this.game,280,150, "verkoop", this.verkoopClicked);
+        this.verkoop.setSizes(100, 50);
+        this.verkoop.anchor.set(0.5);
+		this.verkoop.render();
 
+		this.verkoop = new ButtonObject(this.game,280,240, "verkoop", this.verkoop1Clicked);
+        this.verkoop.setSizes(100, 50);
+        this.verkoop.anchor.set(0.5);
+		this.verkoop.render();
+		this.verkoop = new ButtonObject(this.game,280,330, "verkoop", this.verkoop2Clicked);
+        this.verkoop.setSizes(100, 50);
+        this.verkoop.anchor.set(0.5);
+		this.verkoop.render();
+		this.x= new ButtonObject(this.game,300,45, "x", this.xClick);
+        this.x.setSizes(40, 40);
+        this.x.anchor.set(0.5);
+		this.x.render();
+		this.game.add.sprite(40,115,'apple');
+		this.game.add.sprite(40,200,'peer');
+		this.game.add.sprite(40,285,'banana');
+		//set line for decoration
+new Phaser.Rectangle(0, 0,0,0);
+		var barBlack,maxWidth,tween; 
+		barBlack = this.game.add.graphics(0,115);  
+        barBlack.beginFill(0x000000);    barBlack.drawRect(0,0,25,2);
+		maxWidth = 360;    barBlack.width=0;   
+                   tween = this.game.add.tween(barBlack);   
+                    tween.to({width:maxWidth},100);  
+                      tween.start();
+					  
 		//set the list of items in list
-		this.itemArray = [		]
-		for(let i=0; i < 100; i++) 	{
-				this.itemArray.push(new AppleItem(this.game,0,0, ShopState.prototype.action));
-		}
-	
-		for(var item of this.itemArray){
-			item.x = this.placement * 100;
-			item.y = this.rowcount * 100 + 120;
-			item.setSizes(50,50);
-			item.render();
-			this.placement ++;
-			if (this.placement == 6 )
-			{
-				this.rowcount++;
-				this.placement = 0;
-			} 
-		}
-		this.scrollHeight = this.rowcount * 100 + 250;
+	this.scrollHeight = this.rowcount * 100 + 250;
 		this.game.world.setBounds(0, 0, 320 * this.game.width, this.scrollHeight);
 		this.game.input.onDown.add(this.locationPointer, this);
+		var item = 1;
+		var pear = 0; 
+		var banana = 0;
+		var ItemTitle = new TextObject(this.game,150, 153,item, 40, "#000000");
+		var pearprize = new TextObject(this.game,140, 218,pear, 40, "#000000");
+		var bananaprize = new TextObject(this.game,140, 305,banana, 40, "#000000");
+		ItemTitle.anchor.set(0.5);
 	} 
-
+xClick = function() {
+        this.game.state.start("RunningState");
+    };
+	verkoopClicked = function() {
+        if(this.item>0){
+			this.item = this.item-1;
+			this.Coin = this.coinvalue + 100;
+			this.item.render();
+			this.Coin.render();
+	};};
+		verkoop1Clicked = function() {
+        if(this.pear>0){
+			this.pear - 1;
+			this.Coin + 100;
+			this.pear.render();
+			this.Coin.render();
+		};};
+		verkoop2Clicked = function() {
+        if(this.banana>0){
+			this.banana - 1;
+			this.Coin + 100;
+			this.banana.render();
+			this.Coin.render();
+		};};
 	locationPointer(){
 		this.fromHeight = this.game.input.activePointer.y;
 		console.log(this.fromHeight);
@@ -113,13 +172,13 @@ class ShopState extends Phaser.State{
 			{
 				if (this.game.input.y > this.fromHeight)
 					{
-						this.game.camera.y -= 15;
+						this.game.camera.y += 15;
 					}
 				else if  (this.game.input.y < this.fromHeight)
 					{
-						this.game.camera.y += 15;	
+						this.game.camera.y -= 15;	
 					}
 			}
-	}
+	
 
-}
+}}
