@@ -11,7 +11,7 @@ class profileState extends Phaser.State{
 	
 	// maakt keys item
 	cursors: Phaser.CursorKeys;
-
+	x:ButtonObject;
 
 	
 	constructor() {
@@ -62,10 +62,10 @@ this.load.image('maal',"assets/images/maal.png");
 		this.diamonds.setSizes(20,20);
 		this.diamonds.render();
 
-		this.back= new ButtonObject(this.game,280,150, "x", this.backClick);
-        this.back.setSizes(40, 40);
-        this.back.anchor.set(0.5);
-		this.back.render();
+		this.x= new ButtonObject(this.game,300,45, "x", this.xClicked);
+        this.x.setSizes(40, 40);
+        this.x.anchor.set(0.5);
+		this.x.render();
 		//set line for decoration
 		new Phaser.Rectangle(0, 0,0,0);
 		var barBlack,maxWidth,tween; 
@@ -97,7 +97,7 @@ this.load.image('maal',"assets/images/maal.png");
 		 
 
 	}
-profileState.prototype.backClick = function() {
+profileState.prototype.xClicked = function() {
         this.game.state.start("RunningState");;
     };
 }

@@ -40,6 +40,8 @@ class ShopState extends Phaser.State{
 		this.load.image( 'earth', "assets/images/zon.png" );
 		this.load.image( 'verkoop', "assets/images/verkoopbutton.png" );
 		this.game.stage.backgroundColor = "#663300";
+		this.load.image( 'peer', "assets/images/Pear.png" );
+		this.load.image( 'banana', "assets/images/banana.png" );
 	}
 	
 	create()
@@ -54,6 +56,13 @@ class ShopState extends Phaser.State{
 		shopTitle.anchor.set(0.5);
 		var sdifTitle = new TextObject(this.game,180, 153,"X", 30, "#000000");
 		sdifTitle.anchor.set(0.5);
+		var sdifTitle = new TextObject(this.game,180, 333,"X", 30, "#000000");
+		sdifTitle.anchor.set(0.5);
+
+		var sdifTitle = new TextObject(this.game,180, 243,"X", 30, "#000000");
+		sdifTitle.anchor.set(0.5);
+
+
 		//set coin and diamods
 		this.coins = new Coin(this.game.width / 2 - 100, 90, 200,Coin.prototype.action, this.game);
 		this.coins.setSizes(20,20);
@@ -68,11 +77,21 @@ class ShopState extends Phaser.State{
         this.verkoop.anchor.set(0.5);
 		this.verkoop.render();
 
+		this.verkoop = new ButtonObject(this.game,280,240, "verkoop", this.verkoopClicked);
+        this.verkoop.setSizes(100, 50);
+        this.verkoop.anchor.set(0.5);
+		this.verkoop.render();
+		this.verkoop = new ButtonObject(this.game,280,330, "verkoop", this.verkoopClicked);
+        this.verkoop.setSizes(100, 50);
+        this.verkoop.anchor.set(0.5);
+		this.verkoop.render();
 		this.x= new ButtonObject(this.game,300,45, "x", this.xClicked);
         this.x.setSizes(40, 40);
         this.x.anchor.set(0.5);
 		this.x.render();
 		this.game.add.sprite(40,115,'apple');
+		this.game.add.sprite(40,200,'peer');
+		this.game.add.sprite(40,285,'banana');
 		//set line for decoration
 		new Phaser.Rectangle(0, 0,0,0);
 		var barBlack,maxWidth,tween; 
@@ -89,7 +108,11 @@ class ShopState extends Phaser.State{
 		this.game.world.setBounds(0, 0, 320 * this.game.width, this.scrollHeight);
 		this.game.input.onDown.add(this.locationPointer, this);
 		var item = 1
+		var pear = 0; 
+		var banana = 0;
 		var ItemTitle = new TextObject(this.game,150, 153,item, 40, "#000000");
+		var pearprize = new TextObject(this.game,140, 218,pear, 40, "#000000");
+		var bananaprize = new TextObject(this.game,140, 305,banana, 40, "#000000");
 		ItemTitle.anchor.set(0.5);
 	} 
 
