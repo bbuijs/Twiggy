@@ -1,0 +1,6 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="Upgrade-01.png" x="0" y="45" width="30" height="43"/>
+	<SubTexture name="Upgrade-02.png" x="32" y="0" width="30" height="43"/>
+	<SubTexture name="Upgrade-03.png" x="32" y="45" width="30" height="43"/>
+	<SubTexture name="Upgrade-04.png" x="0" y="0" width="30" height="43"/>
+</TextureAtlas>

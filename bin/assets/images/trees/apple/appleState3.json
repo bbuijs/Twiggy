@@ -1,0 +1,165 @@
+{
+"frames": {
+	"slow_stage_3_entity_000_NewAnimation_000.png": {
+		"frame": {"x":534, "y":801, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_001.png": {
+		"frame": {"x":1068, "y":1335, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_002.png": {
+		"frame": {"x":1068, "y":1068, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_003.png": {
+		"frame": {"x":1068, "y":801, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_004.png": {
+		"frame": {"x":1068, "y":534, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_005.png": {
+		"frame": {"x":1068, "y":267, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_006.png": {
+		"frame": {"x":1068, "y":0, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_007.png": {
+		"frame": {"x":801, "y":1335, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_008.png": {
+		"frame": {"x":801, "y":1068, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_009.png": {
+		"frame": {"x":801, "y":801, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_010.png": {
+		"frame": {"x":801, "y":534, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_011.png": {
+		"frame": {"x":801, "y":267, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_012.png": {
+		"frame": {"x":801, "y":0, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_013.png": {
+		"frame": {"x":534, "y":1335, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_014.png": {
+		"frame": {"x":534, "y":1068, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_015.png": {
+		"frame": {"x":1335, "y":0, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_016.png": {
+		"frame": {"x":534, "y":534, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_017.png": {
+		"frame": {"x":534, "y":267, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_018.png": {
+		"frame": {"x":534, "y":0, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_019.png": {
+		"frame": {"x":267, "y":1335, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_020.png": {
+		"frame": {"x":267, "y":1068, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_021.png": {
+		"frame": {"x":267, "y":801, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_022.png": {
+		"frame": {"x":267, "y":534, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_023.png": {
+		"frame": {"x":267, "y":267, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_024.png": {
+		"frame": {"x":267, "y":0, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_025.png": {
+		"frame": {"x":0, "y":1335, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_026.png": {
+		"frame": {"x":0, "y":1068, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_027.png": {
+		"frame": {"x":0, "y":801, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_028.png": {
+		"frame": {"x":0, "y":534, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_029.png": {
+		"frame": {"x":0, "y":267, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	},
+	"slow_stage_3_entity_000_NewAnimation_030.png": {
+		"frame": {"x":0, "y":0, "w":266, "h":266},
+		"spriteSourceSize": {"x":0,"y":0,"w":266,"h":266},
+		"sourceSize": {"w":266,"h":266}
+	}
+
+},
+"meta": {
+	"image": "appleState3.png",
+	"size": {"w": 1602, "h": 1602},
+	"scale": "1"
+}
+}

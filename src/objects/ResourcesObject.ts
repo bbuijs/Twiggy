@@ -7,7 +7,7 @@ class ResourcesObject extends ButtonObject{
 
     constructor(game:Phaser.Game, x:number, y:number, amount:number, key:string, callback:Function){
         super(game,x,y,key,callback);
-        this._amount = amount
+        this._amount = amount;
         this.setValue(this.amount);
     }
 

@@ -1,0 +1,25 @@
+{
+"frames": {
+	"Upgrade-02.png": {
+		"frame": {"x":31, "y":0, "w":30, "h":43},
+		"spriteSourceSize": {"x":10,"y":7,"w":50,"h":50},
+		"sourceSize": {"w":50,"h":50}
+	},
+	"Upgrade-03.png": {
+		"frame": {"x":0, "y":44, "w":30, "h":43},
+		"spriteSourceSize": {"x":10,"y":7,"w":50,"h":50},
+		"sourceSize": {"w":50,"h":50}
+	},
+	"Upgrade-04.png": {
+		"frame": {"x":0, "y":0, "w":30, "h":43},
+		"spriteSourceSize": {"x":10,"y":7,"w":50,"h":50},
+		"sourceSize": {"w":50,"h":50}
+	}
+
+},
+"meta": {
+	"image": "sprites.png",
+	"size": {"w": 62, "h": 88},
+	"scale": "1"
+}
+}
